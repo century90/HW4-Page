@@ -10,12 +10,12 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class TransferPage {
-    private SelenideElement TRANSFER_PAGE_TITLE = $x("//h2[@data-test-id='dashboard']");
-    private SelenideElement AMOUNT_INPUT = $("[data-test-id='amount'] input");
-    private SelenideElement FROM_INPUT = $("[data-test-id='from'] input");
-    private SelenideElement ACTION_TRANSFER_BTN = $x("//button[@data-test-id='action-transfer']");
-    private SelenideElement CANCEL_BTN = $x("//button[@data-test-id='action-cancel']");
-    private SelenideElement ERROR_MESSAGE = $x("//div[@data-test-id='error-notification']");
+    private selenideElement TRANSFER_PAGE_TITLE = $x("//h2[@data-test-id='dashboard']");
+    private selenideElement AMOUNT_INPUT = $("[data-test-id='amount'] input");
+    private selenideElement FROM_INPUT = $("[data-test-id='from'] input");
+    private selenideElement ACTION_TRANSFER_BTN = $x("//button[@data-test-id='action-transfer']");
+    private selenideElement CANCEL_BTN = $x("//button[@data-test-id='action-cancel']");
+    private selenideElement ERROR_MESSAGE = $x("//div[@data-test-id='error-notification']");
 
     public TransferPage() {
         TRANSFER_PAGE_TITLE.shouldBe(Condition.visible);

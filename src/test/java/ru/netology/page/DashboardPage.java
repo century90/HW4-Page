@@ -10,9 +10,9 @@ import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class DashboardPage {
-    private SelenideElement DASHBOARD_TITLE = $x("//h2[@data-test-id='dashboard']");
-    private SelenideElement REFRESH_BUTTON = $x("//button[@data-test-id='action-reload']");
-    private ElementsCollection CARDS = $$(".list__item div");
+    private selenideElement DASHBOARD_TITLE = $x("//h2[@data-test-id='dashboard']");
+    private selenideElement REFRESH_BUTTON = $x("//button[@data-test-id='action-reload']");
+    private elementsCollection CARDS = $$(".list__item div");
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
 
