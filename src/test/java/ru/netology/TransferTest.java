@@ -9,8 +9,8 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TransferTest {
-    private int FIRST_CARD = 0;
-    private int SECOND_CARD = 1;
+    private int firstCard = 0;
+    private int secondCard = 1;
 
     @Test
     void shouldTransferMoneyFromCard1ToCard2() {
@@ -23,11 +23,11 @@ public class TransferTest {
 
         int balanceOfCard1 = dashboardPage.getCardBalance(0);
         int balanceOfCard2 = dashboardPage.getCardBalance(1);
-        var transferPage = dashboardPage.replenish(SECOND_CARD);
+        var transferPage = dashboardPage.replenish(secondCard);
         int amount = 5000;
         transferPage.transferMoney(DataHelper.getFirstCardInfo().getCardNumber(), amount);
-        assertEquals(balanceOfCard1 - amount, dashboardPage.getCardBalance(FIRST_CARD));
-        assertEquals(balanceOfCard2 + amount, dashboardPage.getCardBalance(SECOND_CARD));
+        assertEquals(balanceOfCard1 - amount, dashboardPage.getCardBalance(firstCard));
+        assertEquals(balanceOfCard2 + amount, dashboardPage.getCardBalance(secondCard));
     }
 
     @Test
@@ -41,11 +41,11 @@ public class TransferTest {
 
         int balanceOfCard1 = dashboardPage.getCardBalance(0);
         int balanceOfCard2 = dashboardPage.getCardBalance(1);
-        var transferPage = dashboardPage.replenish(FIRST_CARD);
+        var transferPage = dashboardPage.replenish(firstCard);
         int amount = 3000;
-        transferPage.transferMoney(DataHelper.getSecondCardInfo().getCardNumber(),amount);
-        assertEquals(balanceOfCard1 + amount, dashboardPage.getCardBalance(FIRST_CARD));
-        assertEquals(balanceOfCard2 - amount, dashboardPage.getCardBalance(SECOND_CARD));
+        transferPage.transferMoney(DataHelper.getSecondCardInfo().getCardNumber(), amount);
+        assertEquals(balanceOfCard1 + amount, dashboardPage.getCardBalance(firstCard));
+        assertEquals(balanceOfCard2 - amount, dashboardPage.getCardBalance(secondCard));
     }
 
     @Test
@@ -59,9 +59,9 @@ public class TransferTest {
 
         int balanceOfCard1 = dashboardPage.getCardBalance(0);
         int balanceOfCard2 = dashboardPage.getCardBalance(1);
-        var transferPage = dashboardPage.replenish(FIRST_CARD);
+        var transferPage = dashboardPage.replenish(firstCard);
         int amount = 15000;
-        transferPage.transferMoney(DataHelper.getSecondCardInfo().getCardNumber(),amount);
+        transferPage.transferMoney(DataHelper.getSecondCardInfo().getCardNumber(), amount);
         transferPage.errorMassage();
     }
 
@@ -76,9 +76,9 @@ public class TransferTest {
 
         int balanceOfCard1 = dashboardPage.getCardBalance(0);
         int balanceOfCard2 = dashboardPage.getCardBalance(1);
-        var transferPage = dashboardPage.replenish(SECOND_CARD);
+        var transferPage = dashboardPage.replenish(secondCard);
         int amount = 15000;
-        transferPage.transferMoney(DataHelper.getFirstCardInfo().getCardNumber(),amount);
+        transferPage.transferMoney(DataHelper.getFirstCardInfo().getCardNumber(), amount);
         transferPage.errorMassage();
     }
 
@@ -93,11 +93,11 @@ public class TransferTest {
 
         int balanceOfCard1 = dashboardPage.getCardBalance(0);
         int balanceOfCard2 = dashboardPage.getCardBalance(1);
-        var transferPage = dashboardPage.replenish(FIRST_CARD);
+        var transferPage = dashboardPage.replenish(firstCard);
         int amount = 0;
-        transferPage.transferMoney(DataHelper.getSecondCardInfo().getCardNumber(),amount);
-        assertEquals(balanceOfCard1 + amount, dashboardPage.getCardBalance(FIRST_CARD));
-        assertEquals(balanceOfCard2 - amount, dashboardPage.getCardBalance(SECOND_CARD));
+        transferPage.transferMoney(DataHelper.getSecondCardInfo().getCardNumber(), amount);
+        assertEquals(balanceOfCard1 + amount, dashboardPage.getCardBalance(firstCard));
+        assertEquals(balanceOfCard2 - amount, dashboardPage.getCardBalance(secondCard));
     }
 
     @Test
@@ -111,10 +111,10 @@ public class TransferTest {
 
         int balanceOfCard1 = dashboardPage.getCardBalance(0);
         int balanceOfCard2 = dashboardPage.getCardBalance(1);
-        var transferPage = dashboardPage.replenish(SECOND_CARD);
+        var transferPage = dashboardPage.replenish(secondCard);
         int amount = 0;
-        transferPage.transferMoney(DataHelper.getFirstCardInfo().getCardNumber(),amount);
-        assertEquals(balanceOfCard1 + amount, dashboardPage.getCardBalance(FIRST_CARD));
-        assertEquals(balanceOfCard2 - amount, dashboardPage.getCardBalance(SECOND_CARD));
+        transferPage.transferMoney(DataHelper.getFirstCardInfo().getCardNumber(), amount);
+        assertEquals(balanceOfCard1 + amount, dashboardPage.getCardBalance(firstCard));
+        assertEquals(balanceOfCard2 - amount, dashboardPage.getCardBalance(secondCard));
     }
 }

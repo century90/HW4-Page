@@ -8,14 +8,14 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage {
 
-    private selenideElement LOGIN = $x("//input[@name='login']");
-    private selenideElement PASSWORD = $x("//input[@name='password']");
-    private selenideElement BUTTON = $x("//button[@data-test-id='action-login']");
+    private SelenideElement login = $x("//input[@name='login']");
+    private SelenideElement password = $x("//input[@name='password']");
+    private SelenideElement button = $x("//button[@data-test-id='action-login']");
 
     public VeryficationPage sucessfulLogin(DataHelper.AuthInfo info) {
-        LOGIN.setValue(info.getLogin());
-        PASSWORD.setValue(info.getPassword());
-        BUTTON.click();
+        login.setValue(info.getLogin());
+        password.setValue(info.getPassword());
+        button.click();
         return new VeryficationPage();
     }
 

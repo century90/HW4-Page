@@ -10,30 +10,30 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class TransferPage {
-    private selenideElement TRANSFER_PAGE_TITLE = $x("//h2[@data-test-id='dashboard']");
-    private selenideElement AMOUNT_INPUT = $("[data-test-id='amount'] input");
-    private selenideElement FROM_INPUT = $("[data-test-id='from'] input");
-    private selenideElement ACTION_TRANSFER_BTN = $x("//button[@data-test-id='action-transfer']");
-    private selenideElement CANCEL_BTN = $x("//button[@data-test-id='action-cancel']");
-    private selenideElement ERROR_MESSAGE = $x("//div[@data-test-id='error-notification']");
+    private SelenideElement transferPageTitle = $x("//h2[@data-test-id='dashboard']");
+    private SelenideElement amountInput = $("[data-test-id='amount'] input");
+    private SelenideElement fromInput = $("[data-test-id='from'] input");
+    private SelenideElement actionTransferBtn = $x("//button[@data-test-id='action-transfer']");
+    private SelenideElement cancelBtn = $x("//button[@data-test-id='action-cancel']");
+    private SelenideElement errorMessage = $x("//div[@data-test-id='error-notification']");
 
     public TransferPage() {
-        TRANSFER_PAGE_TITLE.shouldBe(Condition.visible);
+        transferPageTitle.shouldBe(Condition.visible);
     }
 
     public void errorMassage() {
-        ERROR_MESSAGE.shouldHave(exactText("Ошибка!"))
+        errorMessage.shouldHave(exactText("Ошибка!"))
                 .shouldBe(Condition.visible);
     }
 
     public DashboardPage transferMoney(String cardFrom, int sum) {
-        AMOUNT_INPUT.sendKeys(Keys.LEFT_CONTROL + "A");
-        AMOUNT_INPUT.sendKeys(Keys.BACK_SPACE);
-        AMOUNT_INPUT.setValue(String.valueOf(sum));
-        FROM_INPUT.sendKeys(Keys.LEFT_CONTROL + "A");
-        FROM_INPUT.sendKeys(Keys.BACK_SPACE);
-        FROM_INPUT.setValue(cardFrom);
-        ACTION_TRANSFER_BTN.click();
+        amountInput.sendKeys(Keys.LEFT_CONTROL + "A");
+        amountInput.sendKeys(Keys.BACK_SPACE);
+        amountInput.setValue(String.valueOf(sum));
+        fromInput.sendKeys(Keys.LEFT_CONTROL + "A");
+        fromInput.sendKeys(Keys.BACK_SPACE);
+        fromInput.setValue(cardFrom);
+        actionTransferBtn.click();
         return new DashboardPage();
     }
 }

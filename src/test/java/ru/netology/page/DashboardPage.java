@@ -10,18 +10,18 @@ import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class DashboardPage {
-    private selenideElement DASHBOARD_TITLE = $x("//h2[@data-test-id='dashboard']");
-    private selenideElement REFRESH_BUTTON = $x("//button[@data-test-id='action-reload']");
-    private elementsCollection CARDS = $$(".list__item div");
+    private SelenideElement dashboardTitle = $x("//h2[@data-test-id='dashboard']");
+    private SelenideElement refreshButton = $x("//button[@data-test-id='action-reload']");
+    private ElementsCollection cards = $$(".list__item div");
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
 
     public DashboardPage() {
-        DASHBOARD_TITLE.shouldBe(Condition.visible);
+        dashboardTitle.shouldBe(Condition.visible);
     }
 
     public int getCardBalance(int card) {
-        val text = CARDS.get(card).text();
+        val text = cards.get(card).text();
         return extractBalance(text);
     }
 
@@ -33,7 +33,7 @@ public class DashboardPage {
     }
 
     public TransferPage replenish(int id) {
-        CARDS.get(id).$(byText("Пополнить")).click();
+        cards.get(id).$(byText("Пополнить")).click();
         return new TransferPage();
     }
 

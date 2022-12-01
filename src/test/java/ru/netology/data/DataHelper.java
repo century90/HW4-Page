@@ -14,10 +14,12 @@ public class DataHelper {
     }
 
     public static AuthInfo getAuthInfo() {
+
         return new AuthInfo("vasya", "qwerty123");
     }
 
     public static AuthInfo getOtherAuthInfo(AuthInfo original) {
+
         return new AuthInfo("petya", "123qwerty");
     }
 
@@ -27,6 +29,7 @@ public class DataHelper {
     }
 
     public static VerificationCode getVerificationCodeFor(AuthInfo authInfo) {
+
         return new VerificationCode("12345");
     }
 
@@ -36,10 +39,12 @@ public class DataHelper {
     }
 
     public static CardInfo getFirstCardInfo() {
+
         return new CardInfo("5559 0000 0000 0001");
     }
 
     public static CardInfo getSecondCardInfo() {
+
         return new CardInfo("5559 0000 0000 0002");
     }
 }
